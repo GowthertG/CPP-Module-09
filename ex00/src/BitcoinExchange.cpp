@@ -40,6 +40,8 @@ void BitcoinExchange::fillData(std::string line)
 			else
 				LineData.value = std::atof (token.c_str());
 	}
+	printf("%f\n", LineData.value);
+	std::cout << LineData.date << " | "<< LineData.value << std::endl;
 	this->btcData.insert(std::make_pair(LineData.date, LineData.value));
 }
 
@@ -53,9 +55,9 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 
 	std::string line;
 	std::ifstream file(fileName);
-	std::cout << line << std::endl;
 	if (!file.is_open())
 		throw  (std::string)"cannot open file";
+	std::cout << line << std::endl;
 	getline(file, line);
 	if (line != "date | value")
 		throw (std::string )"Error";
@@ -67,6 +69,7 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 		if (line.length() < 14)
 		{
 			std::cout << "Error : line" << std::endl;
+			continue;
 		}
 		else if (sscanf((line.c_str()), "%d-%d-%d | %f%c", &year, &month, &day,
 				&value, &extra) == 4)
@@ -93,7 +96,10 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 		size_t	pos;
 
 		pos = line.find(' ');
+		// std::cout << LineData.date << std::endl;
+		// std::cout << LineData.value << std::endl;
 		LineData.date = line.substr(0, pos);
+		std::cout << LineData.date << std::endl;
 		findDateAndCalculate();
 	}
 	if (firstLine)
@@ -139,8 +145,8 @@ void BitcoinExchange::findDateAndCalculate()
 	{
 		it = this->btcData.lower_bound(LineData.date);
 	}
-	std::cout << LineData.value << "\n";
-	std::cout << (*it).second << "\n";
+	// std::cout << LineData.value << "\n";
+	// std::cout << (*it).second << "\n";
 
 }
 void  BitcoinExchange::printMap()
