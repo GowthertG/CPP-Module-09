@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <sstream>
 
+//todo error msg need to be excat look at subject and need more test
 BitcoinExchange::BitcoinExchange(){
 	std::ifstream data("src/data.csv");
 	if (!data.is_open())
@@ -152,15 +153,18 @@ void BitcoinExchange::findDateAndCalculate()
 		it--;
 		std::cout << (*it).first << " | " << LineData.value << std::endl;
 		std::cout << (*it).second << " * " << LineData.value << std::endl;
+		//todo add output here
 		return ;
 	}
 	if (it == this->btcData.begin())
 	{
+		//todo add output here
 		std::cerr << "cannot find any closer data" << std::endl;
 		return ;
 	}
 	else
 	{
+		//todo add output here
 		if ((*it).first != LineData.date)
 			it--;
 		std::cout <<  (*it).first << " | " << (*it).second << std::endl;
