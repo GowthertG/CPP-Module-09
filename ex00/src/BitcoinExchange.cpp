@@ -40,8 +40,8 @@ void BitcoinExchange::fillData(std::string line)
 			else
 				LineData.value = std::atof (token.c_str());
 	}
-	printf("%f\n", LineData.value);
-	std::cout << LineData.date << " | "<< LineData.value << std::endl;
+	// printf("%f\n", LineData.value);
+	// std::cout << LineData.date << " | "<< LineData.value << std::endl;
 	this->btcData.insert(std::make_pair(LineData.date, LineData.value));
 }
 
@@ -96,10 +96,12 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 		size_t	pos;
 
 		pos = line.find(' ');
+		// std::cout << value << std::endl;
 		// std::cout << LineData.date << std::endl;
 		// std::cout << LineData.value << std::endl;
 		LineData.date = line.substr(0, pos);
-		std::cout << LineData.date << std::endl;
+		LineData.value = value;
+		// std::cout << LineData.date << std::endl;
 		findDateAndCalculate();
 	}
 	if (firstLine)
@@ -140,13 +142,29 @@ void BitcoinExchange::checkDate(int year, int month, int day)
 void BitcoinExchange::findDateAndCalculate()
 {
 	std::map<std::string, double>::iterator it;
-	it = this->btcData.find(LineData.date);
-	if(it != this->btcData.end())
+	it = this->btcData.lower_bound(LineData.date);
+	// if(it != this->btcData.end())
+	// {
+		// it = this->btcData.lower_bound(LineData.date);
+	// }
+	if (it == this->btcData.end())
 	{
-		it = this->btcData.lower_bound(LineData.date);
+		it--;
+		std::cout << (*it).first << " | " << LineData.value << std::endl;
+		std::cout << (*it).second << " * " << LineData.value << std::endl;
+		return ;
 	}
-	// std::cout << LineData.value << "\n";
-	// std::cout << (*it).second << "\n";
+	if (it == this->btcData.begin())
+	{
+		std::cerr << "cannot find any closer data" << std::endl;
+		return ;
+	}
+	else
+	{
+		if ((*it).first != LineData.date)
+			it--;
+		std::cout <<  (*it).first << " | " << (*it).second << std::endl;
+	}
 
 }
 void  BitcoinExchange::printMap()
