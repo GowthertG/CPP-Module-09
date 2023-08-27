@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <sstream>
 
-//todo error msg need to be excat look at subject and need more test
 BitcoinExchange::BitcoinExchange(){
 	std::ifstream data("src/data.csv");
 	if (!data.is_open())
@@ -41,8 +40,6 @@ void BitcoinExchange::fillData(std::string line)
 			else
 				LineData.value = std::atof (token.c_str());
 	}
-	// printf("%f\n", LineData.value);
-	// std::cout << LineData.date << " | "<< LineData.value << std::endl;
 	this->btcData.insert(std::make_pair(LineData.date, LineData.value));
 }
 
@@ -69,7 +66,7 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 			firstLine = false;
 		if (line.length() < 14)
 		{
-			std::cout << "Error : line" << std::endl;
+			std::cout << "Error : bad input => " << line << std::endl;
 			continue;
 		}
 		else if (sscanf((line.c_str()), "%d-%d-%d | %f%c", &year, &month, &day,
@@ -97,12 +94,8 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 		size_t	pos;
 
 		pos = line.find(' ');
-		// std::cout << value << std::endl;
-		// std::cout << LineData.date << std::endl;
-		// std::cout << LineData.value << std::endl;
 		LineData.date = line.substr(0, pos);
 		LineData.value = value;
-		// std::cout << LineData.date << std::endl;
 		findDateAndCalculate();
 	}
 	if (firstLine)
@@ -111,8 +104,11 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 
 void BitcoinExchange::checkValues(float value)
 {
-	if (value > 1000 || value < 0)
-		throw(std::string) "A valid value must be between 0 and 1000.";
+	if (value > 1000)
+		throw(std::string) "too large a number.";
+	if  (value < 0)
+		throw(std::string) "not a positive number.";
+
 }
 int BitcoinExchange::isLeapYear(int year)
 {
@@ -144,30 +140,22 @@ void BitcoinExchange::findDateAndCalculate()
 {
 	std::map<std::string, double>::iterator it;
 	it = this->btcData.lower_bound(LineData.date);
-	// if(it != this->btcData.end())
-	// {
-		// it = this->btcData.lower_bound(LineData.date);
-	// }
 	if (it == this->btcData.end())
 	{
 		it--;
-		std::cout << (*it).first << " | " << LineData.value << std::endl;
-		std::cout << (*it).second << " * " << LineData.value << std::endl;
-		//todo add output here
+		std::cout << LineData.date << " => " << LineData.value << " = " << LineData.value * (*it).second << std::endl;
 		return ;
 	}
 	if (it == this->btcData.begin())
 	{
-		//todo add output here
 		std::cerr << "cannot find any closer data" << std::endl;
 		return ;
 	}
 	else
 	{
-		//todo add output here
 		if ((*it).first != LineData.date)
 			it--;
-		std::cout <<  (*it).first << " | " << (*it).second << std::endl;
+		std::cout << LineData.date << " => " << LineData.value << " = " << LineData.value * (*it).second << std::endl;
 	}
 
 }
