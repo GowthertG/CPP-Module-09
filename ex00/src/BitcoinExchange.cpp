@@ -55,7 +55,7 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 	std::ifstream file(fileName);
 	if (!file.is_open())
 		throw  (std::string)"cannot open file";
-	std::cout << line << std::endl;
+	// std::cout << line << std::endl;
 	getline(file, line);
 	if (line != "date | value")
 		throw (std::string )"Error";
@@ -75,7 +75,8 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 			if (std::isspace(line[13]) || line[11] != '|' || line[line.length()
 				- 1] == '.')
 			{
-				std::cout << "Error : line format error 1" << std::endl;
+				
+				std::cout << "Error : bad input => " << line << std::endl;
 				continue ;
 			}
 			try
@@ -90,7 +91,10 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 			}
 		}
 		else
-			std::cout << "Error : line format" << std::endl;
+		{
+			std::cout << "Error : bad input => " << line << std::endl;
+			continue;
+		}
 		size_t	pos;
 
 		pos = line.find(' ');
@@ -157,8 +161,8 @@ void BitcoinExchange::findDateAndCalculate()
 			it--;
 		std::cout << LineData.date << " => " << LineData.value << " = " << LineData.value * (*it).second << std::endl;
 	}
-
 }
+
 void  BitcoinExchange::printMap()
 {
     std::map<std::string, double>::const_iterator it;
