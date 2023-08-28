@@ -5,6 +5,8 @@
 # include <iostream>
 # include <map>
 # include <string>
+#include <stdio.h>
+#include <sstream>
 
 struct
 {

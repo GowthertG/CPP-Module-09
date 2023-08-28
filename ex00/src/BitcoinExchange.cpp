@@ -1,6 +1,4 @@
 #include "../include/BitcoinExchange.hpp"
-#include <stdio.h>
-#include <sstream>
 
 BitcoinExchange::BitcoinExchange(){
 	std::ifstream data("src/data.csv");
@@ -109,9 +107,9 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 void BitcoinExchange::checkValues(float value)
 {
 	if (value > 1000)
-		throw(std::string) "too large a number.";
+		throw(std::string) "too large number.";
 	if  (value < 0)
-		throw(std::string) "not a positive number.";
+		throw(std::string) "not a positive a number.";
 
 }
 int BitcoinExchange::isLeapYear(int year)
