@@ -1,5 +1,7 @@
 #ifndef P_HPP
 #define P_HPP
+
+#include <iostream>
 #include <deque>
 #include <vector>
 #include <ctime>
@@ -23,5 +25,8 @@ public:
     //calcualte time functions
     static void run(vector<int> &container);
 };
+
+void print(std::vector<int> &Vec);
+void caluclateTime(std::vector<int> &container, int &vecTime)
 
 #endif

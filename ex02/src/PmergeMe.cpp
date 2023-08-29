@@ -72,7 +72,7 @@ void PmergeMe::run(std::vector<int> &container)
     mergeInsertSortVector(container, 0, container.size() - 1);
 };
 
-void PmergeMe::caluclateTime(std::vector<int> &container, int &vecTime)
+void caluclateTime(std::vector<int> &container, int &vecTime)
 {
     std::clock_t start = std::clock();
     PmergeMe::run(container);
@@ -91,5 +91,5 @@ void print(std::vector<int> &Vec)
     typedef typename std::vector<int>::const_iterator iterator;
     for (iterator it = Vec.begin(); it != Vec.end(); ++it)
 		std::cout << *it << " ";
-
+    std::cout << std::endl;
 }
