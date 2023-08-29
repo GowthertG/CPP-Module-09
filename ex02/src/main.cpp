@@ -1,4 +1,4 @@
-#include "./include/PmergeMe.hpp"
+#include "../include/PmergeMe.hpp"
 
 
 int main (int argc, char **argv)
