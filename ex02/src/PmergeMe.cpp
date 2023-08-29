@@ -31,9 +31,9 @@ void PmergeMe::mergeSortVector(std::vector<int> &container, int start, int mid, 
     std::vector<int> left(mid - START(start));
     std::vector<int> right(end - mid);
 
-    for(i = 0, i < (mid - START(start)), ++i)
+    for(i = 0; i < (mid - START(start)); ++i)
         left[i] = container[start + i];
-    for(j = 0, j < (end - mid), ++j)
+    for(j = 0; j < (end - mid); ++j)
         right[j] = container[mid + 1 + i];
     i = 0;
     j = 0;
@@ -55,11 +55,11 @@ void PmergeMe::mergeSortVector(std::vector<int> &container, int start, int mid, 
 
 void PmergeMe::insertSortVector(std::vector<int> &container, int start, int end)
 {
-    for(int index = START(start), index <= index <= end, index++)
+    for(int index = START(start); index <= end; index++)
     {
         int hold = container[index];
         int j = index - 1;
-        for(; j >= start && container[j] > hold, --j)
+        for(; j >= start && container[j] > hold; --j)
             container[j + 1] = container[j];
         container[j + 1] = hold;
     }
@@ -76,7 +76,7 @@ void caluclateTime(std::vector<int> &container, int &vecTime)
 {
     std::clock_t start = std::clock();
     PmergeMe::run(container);
-    std::colock_t end = std::clock();
+    std::clock_t end = std::clock();
     double elapsad = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
     vecTime = elapsad;
 }
