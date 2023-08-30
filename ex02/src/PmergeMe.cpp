@@ -15,8 +15,9 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &container, int start, int
     {
         if ((end - start) < 10)
             insertSortVector(container, start, end);
-        else{
-            newEnd = midPoint(start, end);
+        else
+        {
+            newEnd = start + (end - start) / 2;
             mergeInsertSortVector(container,  start, newEnd);
             mergeInsertSortVector(container, START(newEnd), end);
             mergeSortVector(container, start, newEnd, end);
@@ -28,18 +29,17 @@ void PmergeMe::mergeSortVector(std::vector<int> &container, int start, int mid, 
 {
     int i, j , k;
 
-    std::vector<int> left(mid - START(start));
+    std::vector<int> left(mid - start + 1);
     std::vector<int> right(end - mid);
 
-    for(i = 0; i < (mid - START(start)); ++i)
+    for(i = 0; i < (mid - start + 1); ++i)
         left[i] = container[start + i];
     for(j = 0; j < (end - mid); ++j)
-        right[j] = container[mid + 1 + i];
+        right[j] = container[mid + 1 + j];
     i = 0;
     j = 0;
     k = start;
-
-    while(i < (mid - start + 1) && (end - mid))
+    while(i < (mid - start + 1) && j < (end - mid))
     {
         if (left[i] <= right[j])
             container[k++] = left[i++];
@@ -47,7 +47,7 @@ void PmergeMe::mergeSortVector(std::vector<int> &container, int start, int mid, 
             container[k++] = right[j++];
     }
 
-    while(i < (mid - START(start)))
+    while(i < (mid - start + 1))
         container[k++] =  left[i++];
     while (j < (end - mid))
         container[k++] = right[j++];
@@ -89,6 +89,7 @@ void print(std::vector<int> &Vec)
 		std::cout << *it << " ";
     std::cout << std::endl;
 }
+
 int midPoint(int start, int end)
 {
     return(start + (end - start) / 2);
