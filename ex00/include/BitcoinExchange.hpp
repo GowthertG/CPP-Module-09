@@ -5,14 +5,10 @@
 # include <iostream>
 # include <map>
 # include <string>
-#include <stdio.h>
-#include <sstream>
+# include <stdio.h>
+# include <sstream>
+# include <cstdlib>
 
-struct
-{
-	int			myNum;
-	std::string myString;
-}				myStructure;
 class BitcoinExchange
 {
   private:

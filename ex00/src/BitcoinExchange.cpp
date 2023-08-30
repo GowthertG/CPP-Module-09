@@ -36,7 +36,7 @@ void BitcoinExchange::fillData(std::string line)
 				i = 1;
 			}
 			else
-				LineData.value = std::atof (token.c_str());
+				LineData.value = atof (token.c_str());
 	}
 	this->btcData.insert(std::make_pair(LineData.date, LineData.value));
 }
@@ -50,7 +50,7 @@ void BitcoinExchange::handleInputFile(std::string fileName)
 	char	extra;
 
 	std::string line;
-	std::ifstream file(fileName);
+	std::ifstream file(fileName.c_str());
 	if (!file.is_open())
 		throw  (std::string)"cannot open file";
 	// std::cout << line << std::endl;
