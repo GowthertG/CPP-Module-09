@@ -23,6 +23,11 @@ public:
     static void mergeInsertSortVector(std::vector<int> &container, int start, int end);
     static void mergeSortVector(std::vector<int> &container, int start, int mid, int end);
     static void insertSortVector(std::vector<int> &container, int start, int end);
+
+    //deque sort functions
+    static void mergeInsertSortDeque(std::deque<int> &container, int start, int end);
+    static void mergeSortDeque(std::deque<int> &container, int start, int mid, int end);
+    static void insertSortDeque(std::deque<int> &container, int start, int end);
     
     //calcualte time functions
     static void run(std::vector<int> &container);
