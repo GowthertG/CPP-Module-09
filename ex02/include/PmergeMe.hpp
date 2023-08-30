@@ -1,11 +1,13 @@
 #ifndef P_HPP
 #define P_HPP
 
+#include <algorithm>
 #include <iostream>
 #include <deque>
 #include <vector>
 #include <ctime>
 #include <sstream>
+#include <cstddef>
 
 #define START(x) x + 1
 
@@ -27,7 +29,7 @@ public:
 };
 
 void print(std::vector<int> &Vec);
-void caluclateTime(std::vector<int> &container, int &vecTime)
-int midPoint(int start , int end);
+void caluclateTime(std::vector<int> &container, int &vecTime);
+int midPoint(int start, int end);
 
 #endif

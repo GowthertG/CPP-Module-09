@@ -81,10 +81,6 @@ void caluclateTime(std::vector<int> &container, int &vecTime)
     vecTime = elapsad;
 }
 // calculate the middle pont within a given range
-int midPoint(int start , int end)
-{
-    return (start + (end - start) / 2);
-}
 
 void print(std::vector<int> &Vec)
 {
@@ -92,4 +88,8 @@ void print(std::vector<int> &Vec)
     for (iterator it = Vec.begin(); it != Vec.end(); ++it)
 		std::cout << *it << " ";
     std::cout << std::endl;
+}
+int midPoint(int start, int end)
+{
+    return(start + (end - start) / 2);
 }
