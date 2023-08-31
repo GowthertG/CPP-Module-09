@@ -8,7 +8,9 @@ int main (int argc, char **argv)
         if (argc < 2 )
             throw ": Enter args";
         std::vector<int> Vec;
+        std::deque<int> Deq;
         int vectorSortingTime;
+        int dequeSortingTime;
         int number;
         for (int index = 1; index < argc; index++)
         {
@@ -18,17 +20,25 @@ int main (int argc, char **argv)
             if (number < 0)
                 throw ": Negative number !";
             Vec.push_back(number);
+            Deq.push_back(number);
         }
-        std::cout << "\033[0;31mVector befor : ";
-        print(Vec);
-        caluclateTime(Vec, vectorSortingTime);
+
+
         std::cout << std::endl;
-        std::cout << "\033[0;32mVector after : ";
-        print(Vec);
-        std::cout << "\033[0;34mTime to process a range of " << argc - 1 << " elements with std::vector : " << vectorSortingTime << " us " << std::endl;
+        print(Vec, Deq);
+        caluclateTime(Vec, Deq , vectorSortingTime, dequeSortingTime);
+        std::cout << std::endl;
+        std::cout << BLUE << "      +------------------------+" << std::endl;
+        std::cout << "      |" << RED << "         Process" << BLUE << "        |" << std::endl;
+        std::cout << "      +------------------------+" << RESET << std::endl;
+        std::cout << std::endl;
+        print(Vec, Deq);
+        std::cout << std::endl <<  YELLOW << "Time to process a range of " <<  argc - 1 <<  " elements with std::vector : " << vectorSortingTime << " us" << std::endl;
+        std::cout << "Time to process a range of " <<  argc - 1 <<  " elements with std::deque :  " << dequeSortingTime << " us" << RESET << std::endl;
     }
     catch(const char *errorMsg)
     {
         std::cout << "Error " << errorMsg << std::endl;
     }
+
 }

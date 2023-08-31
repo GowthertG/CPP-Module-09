@@ -7,7 +7,7 @@ PmergeMe::~PmergeMe(){
 };
 
 
-//vector sort functions
+/***************************************Vector sorting part***************************************/
 void PmergeMe::mergeInsertSortVector(std::vector<int> &container, int start, int end)
 {
     int newEnd;
@@ -67,27 +67,55 @@ void PmergeMe::insertSortVector(std::vector<int> &container, int start, int end)
 
 //calcualte time functions
 
-void PmergeMe::run(std::vector<int> &container)
+void PmergeMe::runV(std::vector<int> &container)
 {
     mergeInsertSortVector(container, 0, container.size() - 1);
 };
 
-void caluclateTime(std::vector<int> &container, int &vecTime)
+void PmergeMe::runD(std::deque<int> &container)
+{
+    mergeInsertSortDeque(container, 0, container.size() - 1);
+};
+void caluclateTime(std::vector<int> &Vcontainer, std::deque<int> &Dcontainer,int &vecTime, int &deqTime)
 {
     std::clock_t start = std::clock();
-    PmergeMe::run(container);
+    PmergeMe::runV(Vcontainer);
     std::clock_t end = std::clock();
     double elapsad = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
     vecTime = elapsad;
+    start = std::clock();
+    PmergeMe::runD(Dcontainer);
+    end = std::clock();
+    elapsad = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+    deqTime = elapsad;
+    
 }
 // calculate the middle pont within a given range
 
-void print(std::vector<int> &Vec)
+void print(std::vector<int> &Vec, std::deque<int> &Deq)
 {
-    typedef typename std::vector<int>::const_iterator iterator;
-    for (iterator it = Vec.begin(); it != Vec.end(); ++it)
-		std::cout << *it << " ";
+
+    static int i = 0;
+
+    if (!i)
+        std::cout << MAG << "Vector "  << "befor : " << BEFOR;
+    else
+        std::cout << MAG << "Vector "<< "after : " << AFTER; 
+
+    typedef typename std::vector<int>::const_iterator Viterator;
+    for (Viterator Vit = Vec.begin(); Vit != Vec.end(); ++Vit)
+		std::cout << *Vit << " ";
     std::cout << std::endl;
+
+    if (!i)
+        std::cout << MAG << "Deque " << " befor : " << BEFOR ;
+    else
+        std::cout << MAG << "Deque "  << " after : " << AFTER;
+    typedef typename std::deque<int>::const_iterator Diterator;
+    for (Diterator Dit = Deq.begin(); Dit != Deq.end(); ++Dit)
+		std::cout << *Dit << " ";
+    std::cout << std::endl;
+    i++;
 }
 
 int midPoint(int start, int end)
@@ -96,6 +124,7 @@ int midPoint(int start, int end)
 }
 
 
+/***************************************Deque sorting part***************************************/
 void PmergeMe::mergeInsertSortDeque(std::deque<int> &container, int start, int end)
 {
     int newEnd;
@@ -152,3 +181,5 @@ void PmergeMe::insertSortDeque(std::deque<int> &container, int start, int end)
         container[j + 1] = hold;
     }
 };
+
+/**************************************main functions***************************************/

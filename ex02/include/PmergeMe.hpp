@@ -9,7 +9,16 @@
 #include <sstream>
 #include <cstddef>
 
+
 #define START(x) x + 1
+#define BEFOR  "\e[0;31m"
+#define AFTER  "\e[0;32m"
+#define MAG "\e[0;35m"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
 
 class PmergeMe
 {
@@ -30,11 +39,12 @@ public:
     static void insertSortDeque(std::deque<int> &container, int start, int end);
     
     //calcualte time functions
-    static void run(std::vector<int> &container);
+    static void runV(std::vector<int> &container);
+    static void runD(std::deque<int> &container);
 };
 
-void print(std::vector<int> &Vec);
-void caluclateTime(std::vector<int> &container, int &vecTime);
+void print(std::vector<int> &, std::deque<int> &);
+void caluclateTime(std::vector<int> &, std::deque <int> &, int &, int &);
 int midPoint(int start, int end);
 
 #endif
