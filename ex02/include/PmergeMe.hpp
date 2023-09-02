@@ -28,6 +28,7 @@ public:
     PmergeMe();
     ~PmergeMe();
     PmergeMe& operator=(const PmergeMe& other);
+    PmergeMe(const PmergeMe& other);
     
     //Vector sort functions
     static void mergeInsertSortVector(std::vector<int> &container, int start, int end);

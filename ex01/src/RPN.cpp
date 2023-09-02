@@ -1,25 +1,17 @@
 #include "../include/RPN.hpp"
 #include <cctype>
 
-RPN::RPN()
-{
-}
-
-RPN::~RPN()
-{
-}
-
+/***************************************Orthodox Canonical Form***************************************/
+RPN::RPN(){}
+RPN::~RPN(){}
 RPN &RPN::operator=(const RPN &src)
 {
 	this->Stack = src.Stack;
 	return (*this);
 }
+RPN::RPN(const RPN &src){this->Stack = src.Stack;}
 
-RPN::RPN(const RPN &src)
-{
-	this->Stack = src.Stack;
-}
-
+/**************************************Utility functions part***************************************/
 bool RPN::operatorIsValid(char Operator)
 {
 	if (Operator == '/' || Operator == '+' || Operator == '-'

@@ -1,10 +1,15 @@
 #include "../include/PmergeMe.hpp"
 
-/***************************************Orthodox Canonical Form***************************************/
 PmergeMe::PmergeMe(){};
 PmergeMe::~PmergeMe(){};
-PmergeMe& PmergeMe::operator=(const PmergeMe& other) {return *this;};
-PmergeMe::PmergeMe(const PmergeMe& other){};
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
+    if (this == &other) {
+        return *this; 
+    }
+    return *this;
+};
+PmergeMe::PmergeMe(const PmergeMe& other){(void)(other);
+};
 
 /***************************************Vector sorting part***************************************/
 void PmergeMe::mergeInsertSortVector(std::vector<int> &container, int start, int end)

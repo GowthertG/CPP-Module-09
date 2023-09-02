@@ -21,6 +21,8 @@ class BitcoinExchange
   public:
 	BitcoinExchange();
 	BitcoinExchange(char **args);
+	BitcoinExchange(const BitcoinExchange& other);
+	BitcoinExchange& operator=(const BitcoinExchange& other);
 	~BitcoinExchange();
 	void fillData(std::string string);
 	void handleInputFile(std::string fileName);

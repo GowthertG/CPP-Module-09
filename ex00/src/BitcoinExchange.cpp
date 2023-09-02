@@ -1,5 +1,6 @@
 #include "../include/BitcoinExchange.hpp"
 
+
 BitcoinExchange::BitcoinExchange(){
 	std::ifstream data("src/data.csv");
 	if (!data.is_open())
@@ -12,15 +13,10 @@ BitcoinExchange::BitcoinExchange(){
 	};
 	data.close();
 };
-
-BitcoinExchange::BitcoinExchange(char **args){
-	(void)(args);
-
-};
-
-BitcoinExchange::~BitcoinExchange(){
-
-};
+BitcoinExchange::BitcoinExchange(char **args){(void)(args);};
+BitcoinExchange::~BitcoinExchange(){};
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other){(void)(other);}
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other){(void)(other);return *this;}
 
 void BitcoinExchange::fillData(std::string line)
 {
