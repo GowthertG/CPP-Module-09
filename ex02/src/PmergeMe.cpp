@@ -1,11 +1,10 @@
 #include "../include/PmergeMe.hpp"
 
-PmergeMe::PmergeMe(){
-};
-
-PmergeMe::~PmergeMe(){
-};
-
+/***************************************Orthodox Canonical Form***************************************/
+PmergeMe::PmergeMe(){};
+PmergeMe::~PmergeMe(){};
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {return *this;};
+PmergeMe::PmergeMe(const PmergeMe& other){};
 
 /***************************************Vector sorting part***************************************/
 void PmergeMe::mergeInsertSortVector(std::vector<int> &container, int start, int end)
@@ -65,12 +64,12 @@ void PmergeMe::insertSortVector(std::vector<int> &container, int start, int end)
     }
 };
 
-void PmergeMe::runV(std::vector<int> &container)
+void PmergeMe::runVector(std::vector<int> &container)
 {
     mergeInsertSortVector(container, 0, container.size() - 1);
 };
 
-void PmergeMe::runD(std::deque<int> &container)
+void PmergeMe::runDeque(std::deque<int> &container)
 {
     mergeInsertSortDeque(container, 0, container.size() - 1);
 };
@@ -133,19 +132,19 @@ void PmergeMe::insertSortDeque(std::deque<int> &container, int start, int end)
     }
 };
 
-/**************************************main functions***************************************/
+/**************************************Utility functions part***************************************/
 void caluclateTime(std::vector<int> &Vcontainer, std::deque<int> &Dcontainer,int &vecTime, int &deqTime)
 {
     std::clock_t start = std::clock();
-    PmergeMe::runV(Vcontainer);
+    PmergeMe::runVector(Vcontainer);
     std::clock_t end = std::clock();
-    double elapsad = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
-    vecTime = elapsad;
+    double elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+    vecTime = elapsed;
     start = std::clock();
-    PmergeMe::runD(Dcontainer);
+    PmergeMe::runDeque(Dcontainer);
     end = std::clock();
-    elapsad = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
-    deqTime = elapsad;
+    elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+    deqTime = elapsed;
     
 }
 
