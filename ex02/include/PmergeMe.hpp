@@ -24,7 +24,8 @@ class PmergeMe
 {
 
 public:
-    //
+
+    //Orthodox Canonical Form
     PmergeMe();
     ~PmergeMe();
     PmergeMe& operator=(const PmergeMe& other);
