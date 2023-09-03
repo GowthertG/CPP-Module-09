@@ -4,12 +4,19 @@
 /***************************************Orthodox Canonical Form***************************************/
 RPN::RPN(){}
 RPN::~RPN(){}
-RPN &RPN::operator=(const RPN &src)
-{
-	this->Stack = src.Stack;
-	return (*this);
+RPN& RPN::operator=(const RPN &src) {
+    if (this != &src) {
+        this->operand = src.operand;
+        this->resault = src.resault;
+        this->Stack = src.Stack; 
+    }
+    return *this;
 }
-RPN::RPN(const RPN &src){this->Stack = src.Stack;}
+RPN::RPN(const RPN &src) {
+    this->operand = src.operand;
+    this->resault = src.resault;
+    this->Stack = src.Stack;
+}
 
 /**************************************Utility functions part***************************************/
 bool RPN::operatorIsValid(char Operator)

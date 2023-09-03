@@ -138,17 +138,17 @@ void PmergeMe::insertSortDeque(std::deque<int> &container, int start, int end)
 };
 
 /**************************************Utility functions part***************************************/
-void caluclateTime(std::vector<int> &Vcontainer, std::deque<int> &Dcontainer,int &vecTime, int &deqTime)
+void caluclateTime(std::vector<int> &Vcontainer, std::deque<int> &Dcontainer,double &vecTime, double &deqTime)
 {
     std::clock_t start = std::clock();
     PmergeMe::runVector(Vcontainer);
     std::clock_t end = std::clock();
-    double elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+    double elapsed = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000.0);
     vecTime = elapsed;
     start = std::clock();
     PmergeMe::runDeque(Dcontainer);
     end = std::clock();
-    elapsed = 1000000.0 * (end - start) / CLOCKS_PER_SEC;
+    elapsed = static_cast<double> (end - start) / (CLOCKS_PER_SEC / 1000000.0);
     deqTime = elapsed;
     
 }

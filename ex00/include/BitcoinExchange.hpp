@@ -20,7 +20,6 @@ class BitcoinExchange
 	std::map<std::string, double> btcData;
   public:
 	BitcoinExchange();
-	BitcoinExchange(char **args);
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange& operator=(const BitcoinExchange& other);
 	~BitcoinExchange();

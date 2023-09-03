@@ -9,8 +9,8 @@ int main (int argc, char **argv)
             throw ": Enter args";
         std::vector<int> Vec;
         std::deque<int> Deq;
-        int vectorSortingTime;
-        int dequeSortingTime;
+        double vectorSortingTime;
+        double dequeSortingTime;
         int number;
         for (int index = 1; index < argc; index++)
         {

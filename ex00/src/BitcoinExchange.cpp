@@ -13,10 +13,30 @@ BitcoinExchange::BitcoinExchange(){
 	};
 	data.close();
 };
-BitcoinExchange::BitcoinExchange(char **args){(void)(args);};
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+    this->LineData.value = other.LineData.value;
+    this->LineData.date = other.LineData.date;
+
+    for (std::map<std::string, double>::const_iterator it = other.btcData.begin(); it != other.btcData.end(); ++it) {
+        this->btcData[it->first] = it->second;
+		}
+};
 BitcoinExchange::~BitcoinExchange(){};
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& other){(void)(other);}
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other){(void)(other);return *this;}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other) {
+    if (this != &other) {
+        this->LineData.value = other.LineData.value;
+        this->LineData.date = other.LineData.date;
+
+        this->btcData.clear();
+        std::map<std::string, double>::const_iterator it;
+        for (it = other.btcData.begin(); it != other.btcData.end(); ++it) {
+            this->btcData[it->first] = it->second;
+        }
+    }
+    return *this;
+};
 
 void BitcoinExchange::fillData(std::string line)
 {

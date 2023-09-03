@@ -18,8 +18,8 @@ class RPN
         RPN();
         RPN(std::string rpn);
         RPN(const RPN &src);
-        ~RPN();
         RPN & operator=(const RPN &src);
+        ~RPN();
         bool operatorIsValid(char Operator);
         void checkRpn(std::string &rpn, int index);
 
