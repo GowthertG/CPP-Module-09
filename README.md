@@ -59,12 +59,12 @@ For this exercise, I constructed a program named `PmergeMe` to sort positive int
 4. Execute the program with a sequence of positive integers as arguments.
 5. The program will showcase both the unsorted and sorted sequences, along with execution times for each container.
 
-Example usage:
-```bash
+#### Example usage: 
+```shell
 $ make && ./PmergeMe 3 5 9 7 4
 ```
 Output :
-```bash
+```shell
 Vector befor : 3 5 9 7 4 
 Deque  befor : 3 5 9 7 4 
 
