@@ -14,10 +14,10 @@ class BitcoinExchange
   private:
 	struct
 	{
-		double	value;
+		float	value;
 		std::string date;
 	} LineData;
-	std::map<std::string, double> btcData;
+	std::map<std::string, float> btcData;
   public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange& other);

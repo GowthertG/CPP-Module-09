@@ -9,11 +9,11 @@ class RPN
 {
     private:
         struct{
-            int first;
-            int secend;
+            double first;
+            double secend;
         }operand;
-        int resault;
-        std::stack<int> Stack;
+        double resault;
+        std::stack<double> Stack;
     public:
         RPN();
         RPN(std::string rpn);

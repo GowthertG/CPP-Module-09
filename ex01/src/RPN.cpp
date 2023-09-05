@@ -57,10 +57,10 @@ RPN::RPN(std::string rpn) : resault(0)
 			Stack.pop();
 			if (rpn[index] == '/' && operand.secend == 0)
 				throw " : division by zero";
-			resault = (rpn[index] == '+') ? operand.first
-				+ operand.secend : (rpn[index] == '-') ? operand.first
-				- operand.secend : (rpn[index] == '*') ? operand.first
-				* operand.secend : operand.first / operand.secend;
+			resault = (rpn[index] == '+') ? (operand.first
+				+ operand.secend ): (rpn[index] == '-') ? (operand.first
+				- operand.secend) : (rpn[index] == '*') ? (operand.first
+				* operand.secend) : (operand.first / operand.secend);
 			Stack.push(resault);
 		}
 	}

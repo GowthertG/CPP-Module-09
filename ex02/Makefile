@@ -1,15 +1,17 @@
 NAME = PmergeMe
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 SRCS =  src/main.cpp src/PmergeMe.cpp
 
 all : $(NAME)
 
 $(NAME) : $(SRCS)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
-clean :
-	rm -rf $(NAME)
+clean : #no object file to clean
+	
+
 fclean : clean
+	rm -rf $(NAME)
 
-re : clean all
+re : fclean all

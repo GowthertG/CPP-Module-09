@@ -1,17 +1,16 @@
 NAME = RPN
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3 
+CCPFLAGS = -Wall -Wextra -Werror -std=c++98 
 SRCS =  src/main.cpp src/RPN.cpp
 
 all : $(NAME)
 
 $(NAME) : $(SRCS)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 
-clean :
-	rm -rf $(NAME)
+clean : #no objects file to clean
+
 fclean : clean
+	rm -rf $(NAME)
 
-re : clean all
-
-run : all
+re : fclean all
