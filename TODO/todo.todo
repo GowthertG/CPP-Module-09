@@ -36,7 +36,7 @@ Ghita's test
     - [] make clean needs to remove the object files not the executable program, la ?
 
 + ex02:
-    - [] the merge insert you used howa li dernah 7na flewel since makonach 3arfinch bzf ms 9ltltk deja and i remember bli kayn wahed l merge insert algo so y9der yt3ke m3ak chi 7ed + lblan dyal you used dequeu and vector => same algo machi matalan derti list (ta hadi 9lthalk) ta hadi y9ed yt3kes m3ak chi hed 
+    - [x] the merge insert you used howa li dernah 7na flewel since makonach 3arfinch bzf ms 9ltltk deja and i remember bli kayn wahed l merge insert algo so y9der yt3ke m3ak chi 7ed + lblan dyal you used dequeu and vector => same algo machi matalan derti list (ta hadi 9lthalk) ta hadi y9ed yt3kes m3ak chi hed 
     sf in general hadchi li banli 7ta tzid tester w 3te l nas ytestew 7it t9der chi haja matbanlich mn ghir les remarques li 9oltlk, khas tfser 3lach derti kola container f kola exercise w difference dyal time 3lach kayna w dakchi blabla mhm rak 3arfo 
 
 

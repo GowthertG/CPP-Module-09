@@ -5,11 +5,11 @@ SRCS =  src/main.cpp src/PmergeMe.cpp
 
 all : $(NAME)
 
-$(NAME) : $(SRCS)
-	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
+$(NAME) : $(SRCS) $(OBJS)
+	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-clean : #no object file to clean
-	
+clean : 
+	rm -rf $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME)
