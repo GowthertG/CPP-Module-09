@@ -21,11 +21,7 @@ In this exercise, I developed a program named `btc` to calculate the value of a 
 3. Compile the program using the provided Makefile.
 4. Execute the program with your desired input file.
 
-# C++ Standard Library Functions Used in BitcoinExchange
-
-This README.md file provides documentation for the C++ standard library functions used in the BitcoinExchange code.
-
-## Functions
+## C++ Standard Library Functions Used in BitcoinExchange
 
 ### 1. `std::ifstream`
 
@@ -130,11 +126,7 @@ In this exercise, I designed a program named `RPN` that evaluates inverted Polis
 2. Navigate to the 'ex01' directory.
 3. Compile the program using the provided Makefile.
 4. Run the program with your desired inverted Polish expression as an argument.
-# C++ Standard Library Functions Used in RPN
-
-This README.md file provides documentation for the C++ standard library functions used in the RPN (Reverse Polish Notation) code.
-
-## C++ Standard Library Functions
+## C++ Standard Library Functions Used in RPN
 
 ### 1. `<cctype>`
 
