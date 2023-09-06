@@ -130,7 +130,31 @@ In this exercise, I designed a program named `RPN` that evaluates inverted Polis
 2. Navigate to the 'ex01' directory.
 3. Compile the program using the provided Makefile.
 4. Run the program with your desired inverted Polish expression as an argument.
+# C++ Standard Library Functions Used in RPN
 
+This README.md file provides documentation for the C++ standard library functions used in the RPN (Reverse Polish Notation) code.
+
+## C++ Standard Library Functions
+
+### 1. `<cctype>`
+
+- **Description:** The `<cctype>` header provides functions for character classification and manipulation. In the RPN code, it is used to check if characters are digits and to classify characters.
+
+### 2. `std::isdigit`
+
+- **Description:** `std::isdigit` is a function provided by the C++ standard library that checks if a character is a decimal digit (0-9). In the RPN code, it is used to determine if a character is a digit.
+
+### 3. `std::string`
+
+- **Description:** `std::string` is a standard C++ class for working with strings of characters. In the RPN code, it is used to manipulate and process strings representing RPN expressions.
+
+### 4. `std::cout`
+
+- **Description:** `std::cout` is an output stream provided by the C++ standard library that is used for writing data to the standard output (usually the console). In the RPN code, it is used to print the result of RPN expressions to the console.
+
+### 5. `std::stack`
+
+- **Description:** `std::stack` is a standard C++ container class that represents a stack data structure. In the RPN code, it is used to implement a stack for evaluating RPN expressions.
 ## Exercise 02: PmergeMe
 
 ### Description
